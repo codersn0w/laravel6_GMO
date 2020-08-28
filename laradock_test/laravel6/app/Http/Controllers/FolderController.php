@@ -24,8 +24,69 @@ class FolderController extends Controller
 	    // インスタンスの状態をデータベースに書き込む
 	    $folder->save();
 
-	    return redirect()->route('tasks.index', [
-	        'id' => $folder->id,
-	    ]);
+	    return redirect()->route('tasks.index');
 	}
+
+	/**
+     * タスク編集フォーム
+     * @param Folder $folder
+     * @param Task $task
+     * @return \Illuminate\View\View
+     */
+    public function showEditForm(Folder $folder)
+    {
+        //$this->checkRelation($folder);
+
+        return view('folders/edit', [
+            'folder' => $folder,
+        ]);
+    }
+
+    /**
+     * タスク編集
+     * @param Folder $folder
+     * @param Task $task
+     * @param EditTask $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function edit(Folder $folder, createFolder $request)
+    {
+        //$this->checkRelation($folder, $task);
+
+        $folder->title = $request->title;
+        $folder->save();
+
+        return redirect()->route('tasks.index');
+    }
+
+    public function showDeleteForm(Folder $folder)
+    {
+        //$this->checkRelation($folder, $task);
+
+        return view('folders/delete', [
+            'folder' => $folder,
+            //'task' => $task,
+        ]);
+    }
+
+    public function delete(Folder $folder)
+    {
+        //$this->checkRelation($folder, $task);
+        $folder->tasks()->delete();
+        $folder->delete();
+
+        return redirect()->route('tasks.index');
+    }
+
+    /**
+     * フォルダとタスクの関連性があるか調べる
+     * @param Folder $folder
+     * @param Task $task
+     */
+    private function checkRelation(Folder $folder, Task $task)
+    {
+        if ($folder->id !== $task->folder_id) {
+            abort(404);
+        }
+    }
 }

@@ -7,13 +7,19 @@
   <title>ToDo App</title>
   @yield('styles')
   <link rel="stylesheet" href="/css/styles.css">
+  <script src="https://kit.fontawesome.com/9f0b2823d7.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<div class="dark_hover">
 <header>
   <nav class="my-navbar">
-    <a class="my-navbar-brand" href="/">ToDo App</a>
+    <a class="my-navbar-brand" href="/">ToDo App <i class="fas fa-list-ul"></i></a>
     <div class="my-navbar-control">
       @if(Auth::check())
+        <a href="{{ route('folders.create') }}"  class="btn btn-primary">
+              フォルダを新規作成
+        </a>
+        ｜
         <span class="my-navbar-item">ようこそ, {{ Auth::user()->name }}さん</span>
         ｜
         <a href="#" id="logout" class="my-navbar-item">ログアウト</a>
@@ -40,5 +46,6 @@
   </script>
 @endif
 @yield('scripts')
+</div>
 </body>
 </html>

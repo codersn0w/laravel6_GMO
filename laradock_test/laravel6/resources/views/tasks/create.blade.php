@@ -19,7 +19,8 @@
                 @endforeach
               </div>
             @endif
-            <form action="{{ route('tasks.create', ['id' => $folder_id]) }}" method="POST">
+            <h4>追加先: {{ $folder->title }}</h4>
+            <form action="{{ route('tasks.create', ['folder' => $folder_id]) }}" method="POST">
               @csrf
               <div class="form-group">
                 <label for="title">タイトル</label>
@@ -30,7 +31,10 @@
                 <input type="text" class="form-control" name="due_date" id="due_date" value="{{ old('due_date') }}" />
               </div>
               <div class="text-right">
-                <button type="submit" class="btn btn-primary">送信</button>
+                <a href="{{ route('tasks.index') }}" class="btn">
+                  キャンセル
+                </a>
+                <button type="submit" class="btn btn-primary">追加</button>
               </div>
             </form>
           </div>

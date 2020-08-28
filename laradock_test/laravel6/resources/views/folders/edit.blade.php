@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col col-md-offset-3 col-md-6">
         <nav class="panel panel-default">
-          <div class="panel-heading">フォルダを追加する</div>
+          <div class="panel-heading">フォルダを編集する</div>
           <div class="panel-body">
             @if($errors->any())
               <div class="alert alert-danger">
@@ -14,17 +14,21 @@
                 @endforeach
               </div>
             @endif
-            <form action="{{ route('folders.create') }}" method="post">
+            <form
+                action="{{ route('folders.edit', ['folder' => $folder->id]) }}"
+                method="POST"
+            >
               @csrf
               <div class="form-group">
-                <label for="title">フォルダ名</label>
-                <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}" />
+                <label for="title">タイトル</label>
+                <input type="text" class="form-control" name="title" id="title"
+                       value="{{ old('title', $folder->title) }}" />
               </div>
               <div class="text-right">
                 <a href="{{ route('tasks.index') }}" class="btn">
                   キャンセル
                 </a>
-                <button type="submit" class="btn btn-primary">追加</button>
+                <button type="submit" class="btn btn-primary">決定</button>
               </div>
             </form>
           </div>
@@ -32,4 +36,8 @@
       </div>
     </div>
   </div>
+@endsection
+
+@section('scripts')
+  @include('share.flatpickr.scripts')
 @endsection

@@ -19,7 +19,7 @@
               </div>
             @endif
             <form
-                action="{{ route('tasks.edit', ['id' => $task->folder_id, 'task_id' => $task->id]) }}"
+                action="{{ route('tasks.edit', ['folder' => $task->folder_id, 'task' => $task->id]) }}"
                 method="POST"
             >
               @csrf
@@ -47,7 +47,10 @@
                        value="{{ old('due_date', $task->formatted_due_date) }}" />
               </div>
               <div class="text-right">
-                <button type="submit" class="btn btn-primary">送信</button>
+                <a href="{{ route('tasks.index') }}" class="btn">
+                  キャンセル
+                </a>
+                <button type="submit" class="btn btn-primary">決定</button>
               </div>
             </form>
           </div>
