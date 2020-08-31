@@ -6,7 +6,7 @@ body {
   background-image: url("../bg.png");
 }
 .dark_hover{
-  background-color:rgba(0,0,0,0.8);
+  background-color:rgba(0,0,0,0.5);
   position: absolute;
   top:0;
   right:0;

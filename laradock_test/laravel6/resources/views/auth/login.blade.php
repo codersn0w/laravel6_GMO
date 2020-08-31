@@ -24,6 +24,17 @@
                 <label for="password">パスワード</label>
                 <input type="password" class="form-control" id="password" name="password" />
               </div>
+               <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
+                                <div class="form-check">
+              
+                        </div>                      <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                    <label class="form-check-label" for="remember">
+                                        {{ __('Remember Me') }}
+                                    </label>
+                                </div>
+                            </div>
               <div class="text-right">
                 <button type="submit" class="btn btn-primary">ログイン</button>
               </div>

@@ -14,6 +14,6 @@ return [
     */
 
     'failed' => 'メールアドレスまたはパスワードに誤りがあります。',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'throttle' => 'ログイン試行回数が上限を超えました。 :seconds 秒後に再度やり直してください。',
 
 ];
