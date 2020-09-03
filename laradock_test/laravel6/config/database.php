@@ -55,7 +55,7 @@ return [
                 'host' => env('DB_SLAVE_HOST','192.168.0.6'),
                 'port' => env('DB_SLAVE_PORT','3306'),
             ],
-            write => [
+            'write' => [
                 'host' => env('DB_MASTER_HOST','192.168.0.1'),
                 'port' => env('DB_MASTER_PORT','3306'),
             ],
