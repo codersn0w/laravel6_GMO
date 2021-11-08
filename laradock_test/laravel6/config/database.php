@@ -51,12 +51,18 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'read' => [
+                'host' => env('DB_SLAVE_HOST','192.168.0.6'),
+                'port' => env('DB_SLAVE_PORT','3306'),
+            ],
+            'write' => [
+                'host' => env('DB_MASTER_HOST','192.168.0.1'),
+                'port' => env('DB_MASTER_PORT','3306'),
+            ],
+            'sticky' => true,
+            'database' => env('DB_DATABASE', 'todo'),
+            'username' => env('DB_USERNAME', 'wepapp2'),
+            'password' => env('DB_PASSWORD', 'Gmopass1230!'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
