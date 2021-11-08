@@ -1,19 +1,28 @@
 @import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/bootflat/2.0.4/css/bootflat.min.css');
+@import url('http://fonts.googleapis.com/earlyaccess/notosansjp.css');
 
 body {
-  //background-color: #f4f7f8;
-  background-image: url("../bg.png");
+  /*background-image: url("../bg.svg");*/
+  /*background: #70e1f5;  /* fallback for old browsers */
+  /*background: linear-gradient(#ffd194, #70e1f5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /*background: -webkit-linear-gradient(#ffd194, #70e1f5);  /* Chrome 10-25, Safari 5.1-6 */
+  font-family: 'Lato', 'Noto Sans JP', 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  font-size: 16px;
 }
-.dark_hover{
-  background-color:rgba(0,0,0,0.5);
-  position: absolute;
-  top:0;
-  right:0;
-  bottom:0;
-  left:0;
-  content: ' ';
-  z-index:0;
+
+body:after {/*擬似要素をつくる*/
+  position: fixed;/*固定配置*/
+  top: 0; left: 0;/*左上に固定*/
+  width: 100%; height: 100%;/*画面全体を覆う*/
+  content: "";
+  z-index: -1;
+  background: #70e1f5;  /* fallback for old browsers */
+  background: linear-gradient(#ffd194, #70e1f5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: -webkit-linear-gradient(#ffd194, #70e1f5);  /* Chrome 10-25, Safari 5.1-6 */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffd194', endColorstr='#70e1f5',GradientType=0 );/*IE9以下への対応*/
+  background: linear-gradient(to bottom, #ffd194 0%, #70e1f5 100%);/*正規のプロパティ*/
+  background: linear-gradient(to bottom, #ffe2bb 0%, #e2f9fd 100%);
 }
 
 header{
@@ -26,7 +35,7 @@ header{
 
 .my-navbar {
   align-items: center;
-  background: #333;
+  background: rgba(255,255,255,0.8);
   display: flex;
   height: 6rem;
   justify-content: space-between;
@@ -35,17 +44,18 @@ header{
 }
 
 .my-navbar-brand {
-  font-size: 18px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 22px;
 }
 
 .my-navbar-brand,
 .my-navbar-item {
-  color: #bfbfbf;
+  color: #333;
 }
 
 .my-navbar-brand:hover,
 a.my-navbar-item:hover {
-  color: #ffffff;
+  color: #999;
 }
 
 .form-control[disabled],
@@ -53,8 +63,40 @@ a.my-navbar-item:hover {
   background-color: #fff;
 }
 
+.panel{
+  padding: 10px;
+  background: rgba(255,255,255,0.8);
+}
+
+.panel-heading {
+  border: none;
+  padding: 35px 35px 20px 35px;
+  background: rgba(255,255,255,0) !important;
+  font-size: 22px;
+  text-align: center;
+}
 
 .panel-heading a{
   text-decoration: none;
   color:#000;
+}
+
+.panel-body {
+  padding: 30px 50px 50px 50px;
+}
+
+@media (min-width: 992px)
+.col-md-6 {
+  width: 70%;
+}
+
+.text-center{
+  background:rgba(255,255,255,0.8);
+  padding: 10px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
 }
